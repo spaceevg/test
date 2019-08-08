@@ -45,8 +45,9 @@ abstract class CircleAbstract
     private function printPoints()
     {
         $x = 0;
-        $sin = $x / $this->radius;
-        while($sin <= $this->quadrant) {
+        $maxX = $this->radius * $this->quadrant;
+        while($x <= $maxX) {
+            $sin = $x / $this->radius;
             $points = [];
             $y = $this->radius * sqrt(1 - ($sin ** 2));
             $points[] = [
@@ -90,7 +91,6 @@ abstract class CircleAbstract
             }
 
             $x += $this->step;
-            $sin = $x / $this->radius;
         }
     }
 }
